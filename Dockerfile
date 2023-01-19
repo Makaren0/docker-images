@@ -4,7 +4,7 @@ LABEL       author="Makaren0" maintainer="Makaffe@hotmail.com"
 
 RUN apt update \
     && apt upgrade -y \
-    && apt install -y unzip lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
+    && dpkg --add-architecture i386; apt update -y; apt install -y curl wget file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32stdc++6 lib32z1\
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt install -y nodejs npm \
     && mkdir /node_modules \
