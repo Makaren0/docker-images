@@ -7,7 +7,7 @@ ENV DEBCONF_NOWARNINGS="yes"
 
 RUN apt update \
     && apt upgrade -y \
-    && dpkg --add-architecture i386; apt update -y;apt upgrade -y \
+    && dpkg --add-architecture i386; apt install -y curl; apt update -y;apt upgrade -y \
 	&& curl -sL https://deb.nodesource.com/setup_15.x | bash - \
 	&& apt install -y nodejs npm \
 	&& mkdir /node_modules \
