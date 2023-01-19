@@ -1,11 +1,11 @@
-FROM ubuntu:18.04
+FROM debian:bullseye-slim
 
 LABEL       author="Makaren0" maintainer="Makaffe@hotmail.com"
 
 RUN apt update \
     && apt upgrade -y \
     && apt install -y unzip lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
-    && wget -qO- https://deb.nodesource.com/setup_6.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt install -y nodejs npm \
     && mkdir /node_modules \
     && npm install --prefix / ws \
