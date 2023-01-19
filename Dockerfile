@@ -19,7 +19,7 @@ ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
-RUN npm install --prefix / ws \
+RUN npm install --prefix / ws
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
