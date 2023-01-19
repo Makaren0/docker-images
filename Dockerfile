@@ -5,7 +5,7 @@ LABEL       author="Makaren0" maintainer="Makaffe@hotmail.com"
 RUN apt update \
     && apt upgrade -y \
     && dpkg --add-architecture i386; apt update -y; apt install -y curl wget file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32stdc++6 lib32z1\
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt install -y nodejs npm \
     && mkdir /node_modules \
     && npm install --prefix / ws \
