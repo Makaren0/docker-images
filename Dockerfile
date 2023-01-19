@@ -10,7 +10,7 @@ RUN apt update \
 	&& dpkg --add-architecture i386; apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
     && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs npm \
-	&& npm install --prefix / ws
+	&& npm install --prefix / ws \
 	&& apt update -y; apt install wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1\
 	&& mkdir /node_modules \
     && useradd -d /home/container -m container
