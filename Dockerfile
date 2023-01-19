@@ -1,10 +1,10 @@
 FROM ubuntu:18.04
 
-LABEL       author="Isaac A." maintainer="isaac@isaacs.site"
+LABEL       author="Makaren0" maintainer="Makaffe@hotmail.com"
 
 RUN apt update \
     && apt upgrade -y \
-    && apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
+    && apt install -y unzip lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt install -y nodejs npm \
     && mkdir /node_modules \
