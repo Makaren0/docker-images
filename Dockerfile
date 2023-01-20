@@ -26,6 +26,9 @@ RUN apt update\
 	&& node --version \
 	&& apt-cache policy openssh-server
 
+RUN npm update
+RUN npm install --prefix / ws
+
 USER container
 ENV  USER=container HOME=/home/container
 
@@ -33,8 +36,5 @@ WORKDIR /home/container
 COPY ./ ./
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
-
-RUN npm update
-RUN npm install --prefix / ws
 
 CMD ["/bin/bash", "/entrypoint.sh"]
