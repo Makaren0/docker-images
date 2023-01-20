@@ -30,11 +30,10 @@ USER container
 ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
-
-RUN npm install --prefix / ws
-
 COPY ./ ./
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
+
+RUN npm install --prefix / ws
 
 CMD ["/bin/bash", "/entrypoint.sh"]
