@@ -7,12 +7,13 @@ ENV DEBCONF_NOWARNINGS="yes"
 
 RUN apt update \
     && apt upgrade -y \
-	&& dpkg --add-architecture i386; apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
+	&& apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
+	&& apt update -y; \
     && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs npm \
-	&& npm install --prefix / ws \
-	&& apt update -y; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1\
 	&& mkdir /node_modules \
+	&& npm install --prefix / ws \
+	&& dpkg --add-architecture i386; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1\
     && useradd -d /home/container -m container
 
 USER container
