@@ -24,7 +24,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
 
 RUN npm update
-RUN npm install --prefix / ws
+RUN npm install -g --prefix / ws
 
 RUN node --version
 RUN apt-cache policy openssh-server
