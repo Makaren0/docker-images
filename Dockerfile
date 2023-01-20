@@ -34,6 +34,7 @@ COPY ./ ./
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
 
+RUN npm update
 RUN npm install --prefix / ws
 
 CMD ["/bin/bash", "/entrypoint.sh"]
