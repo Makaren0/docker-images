@@ -9,7 +9,6 @@ RUN apt update \
     && apt upgrade -y \
 	&& apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus \
 
-
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs npm \
 	&& mkdir /node_modules \
