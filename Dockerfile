@@ -19,10 +19,9 @@ USER container
 ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
-COPY ./ ./
 
-COPY ./package.json ./
 RUN npm install --prefix / ws
+COPY ./ ./
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
