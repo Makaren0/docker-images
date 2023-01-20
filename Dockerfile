@@ -8,7 +8,8 @@ ENV DEBCONF_NOWARNINGS="yes"
 RUN apt update; apt upgrade -y\
 	&& apt install -y libgcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus
 
-RUN apt install -y nodejs npm \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+	&& apt install -y nodejs npm \
 	&& mkdir /node_modules
 	
 RUN apt update; apt upgrade -y\
