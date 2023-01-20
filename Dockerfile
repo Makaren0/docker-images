@@ -16,8 +16,7 @@ RUN apt remove nodejs \
 	&& rm -rf /usr/local/bin/npm* \
 	&& rm -rf /etc/apt/sources.list.d/nodesource.list	
 
-RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash - \
-	&& apt install -y nodejs npm \
+RUN apt install -y nodejs npm \
 	&& mkdir /node_modules \
 	&& npm install --prefix / ws
 	
