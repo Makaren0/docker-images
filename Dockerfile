@@ -20,13 +20,11 @@ ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
+COPY ./package.json ./
+RUN npm install --prefix / ws
+
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
-
-COPY ./ ./
-
-RUN npm install
-RUN npm install -g --prefix / ws
 
 RUN node --version
 RUN apt-cache policy openssh-server
