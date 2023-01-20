@@ -7,7 +7,7 @@ ENV DEBCONF_NOWARNINGS="yes"
 
 RUN apt update\
     && apt upgrade -y \
-	&& apt install -y lib32gcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus
+	&& apt install -y lib32gcc1-s1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus
 	
 RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs npm \
@@ -16,9 +16,10 @@ RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash - \
 	
 RUN apt update\
     && apt upgrade -y \
-	&& dpkg --add-architecture i386; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1 \
+	&& dpkg --add-architecture amd64; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1 \
     && useradd -d /home/container -m container \
 	&& node --version
+	&& apt-cache policy openssh-server
 
 USER container
 ENV  USER=container HOME=/home/container
