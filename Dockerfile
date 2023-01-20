@@ -18,7 +18,7 @@ RUN apt update\
     && apt upgrade -y \
 	&& dpkg --add-architecture amd64; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1 \
     && useradd -d /home/container -m container \
-	&& node --version
+	&& node --version \
 	&& apt-cache policy openssh-server
 
 USER container
