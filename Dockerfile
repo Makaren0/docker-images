@@ -17,8 +17,7 @@ RUN apt remove nodejs \
 	&& rm -rf /etc/apt/sources.list.d/nodesource.list	
 
 RUN apt install -y nodejs npm \
-	&& mkdir /node_modules \
-	&& npm install --prefix / ws
+	&& mkdir /node_modules
 	
 RUN apt update\
     && apt upgrade -y \
@@ -31,6 +30,8 @@ USER container
 ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
+
+RUN npm install --prefix / ws
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
