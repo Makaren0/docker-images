@@ -18,7 +18,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
 RUN apt update \
     && apt upgrade -y \
 	&& dpkg --add-architecture i386; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1 \
-    && useradd -d /home/container -m container
+    && useradd -d /home/container -m container \
 	&& node --version
 
 USER container
