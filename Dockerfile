@@ -33,6 +33,7 @@ WORKDIR /home/container
 
 RUN npm install --prefix / ws
 
+COPY ./ ./
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
 
