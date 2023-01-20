@@ -23,7 +23,9 @@ WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
 
-RUN npm update
+COPY ./ ./
+
+RUN npm install
 RUN npm install -g --prefix / ws
 
 RUN node --version
