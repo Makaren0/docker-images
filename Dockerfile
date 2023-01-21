@@ -21,6 +21,8 @@ RUN  apt --fix-broken install \
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs \
 	&& mkdir /node_modules
+
+RUN npm install --prefix / ws
 	
 RUN apt update; apt upgrade -y\
 	&& dpkg --add-architecture i386; apt install -y wget file tar bzip2 gzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32z1
@@ -33,8 +35,6 @@ WORKDIR /home/container
 
 RUN node --version
 RUN apt-cache policy openssh-server
-RUN npm install --prefix / ws
-COPY ./ ./
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./wrapper.js /wrapper.js
