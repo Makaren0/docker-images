@@ -14,7 +14,7 @@ RUN apt-get update \
 
 RUN  apt --fix-broken install \
 	&& apt-get update \
-	&& sudo apt-get upgrade \
+	&& apt-get upgrade \
 	&& dpkg --configure -a \
 	&& apt-get install -f
  
