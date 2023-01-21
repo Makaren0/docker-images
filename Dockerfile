@@ -8,6 +8,16 @@ ENV DEBCONF_NOWARNINGS="yes"
 RUN apt update; apt upgrade -y\
 	&& apt install -y libgcc1 lib32stdc++6 unzip curl iproute2 tzdata libgdiplus
 
+RUN apt-get update \
+	&& apt-get clean \
+	&& apt-get autoremove
+
+RUN  apt --fix-broken install \
+	&& apt-get update \
+	&& sudo apt-get upgrade \
+	&& dpkg --configure -a \
+	&& apt-get install -f
+ 
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - &&\ \
 	&& apt install -y nodejs \
 	&& mkdir /node_modules
