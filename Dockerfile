@@ -18,7 +18,7 @@ RUN  apt --fix-broken install \
 	&& dpkg --configure -a \
 	&& apt-get install -f
  
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - &&\ \
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
 	&& apt install -y nodejs \
 	&& mkdir /node_modules
 	
